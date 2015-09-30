@@ -10,28 +10,14 @@ require 'spec_helper'
 
 class Complement
   def of_dna(dna_string)
-    dna_string_array = dna_string.upcase.chars
-    rna_string_array = []
+    dna_string.upcase!
     
-    dna_string_array.map do |element|
+    
+    dna_string.each_char do |element|
       raise ArgumentError, "Invalid Input" unless ['G','C','T','A'].include?(element)
     end
     
-    dna_string_array.each do |char|
-
-      case
-      when char == 'G'
-        char.gsub!('G','C')
-      when char == 'C'
-        char.gsub!('C','G')
-      when char == 'T'
-        char.gsub!('T','A')
-      when char == 'A'
-        char.gsub!('A','U')
-      end
-      rna_string_array.push(char)
-    end
-    rna_string_array.join
+    dna_string.tr('GCTA','CGAU')
   end
 end
 
