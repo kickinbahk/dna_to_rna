@@ -1,4 +1,4 @@
-require_relative '../app/ruby_file'
+require_relative '../app/dna_to_rna.rb'
 
 RSpec.configure do |config|
   # Use color in STDOUT
